@@ -15,8 +15,7 @@ public class Customer extends Thread {
 
     @Override
     public void run() {
-
-        startingSite.borrow();
+        startingSite.borrow(id);
 
         try {
             Thread.sleep(startingSite.distanceBetween(arrivalSite));
@@ -26,7 +25,7 @@ public class Customer extends Thread {
             Thread.currentThread().interrupt();
         }
 
-        arrivalSite.returnBike();
+        arrivalSite.returnBike(id);
         System.out.println("Customer " + id + ": Finished.");
     }
 }

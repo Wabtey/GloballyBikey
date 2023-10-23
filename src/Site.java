@@ -30,8 +30,9 @@ public class Site {
     // the Truck
 
     /** Used by Customers */
-    public synchronized void borrow() {
-        if (currentStock <= 0) {
+    public synchronized void borrow(int customerID) {
+        while (currentStock <= 0) {
+            System.out.println("Customer " + customerID + " waits a bike on site " + id);
             try {
                 wait();
             } catch (InterruptedException e) {
@@ -40,12 +41,14 @@ public class Site {
             }
         }
         currentStock--;
+        // notifyAll();
         afficher();
     }
 
     /** Used by Customers */
-    public synchronized void returnBike() {
-        if (currentStock >= STOCK_MAX) {
+    public synchronized void returnBike(int customerID) {
+        while (currentStock >= STOCK_MAX) {
+            System.out.println("Customer " + customerID + " waits to return their bike on site " + id);
             try {
                 wait();
             } catch (InterruptedException e) {
@@ -54,6 +57,10 @@ public class Site {
             }
         }
         currentStock++;
+        // sometimes customers fell asleep, and even if the site is refilled
+        // (by others customers) they won't be woke up unless we `notifyAll()`
+        // after each bike returned.
+        notifyAll();
         afficher();
     }
 
@@ -63,6 +70,8 @@ public class Site {
      * @return the new truck's stock.
      */
     public synchronized int adjustStock(int truckStock) {
+        int newTruckStock = truckStock;
+
         if (currentStock < BORNE_INF) {
             int amountToRefill = BORNE_INF - currentStock;
             int amountRefilled;
@@ -71,14 +80,23 @@ public class Site {
             } else {
                 amountRefilled = truckStock;
             }
-            currentStock += amountRefilled;
-            return truckStock - amountRefilled;
+            if (amountRefilled > 0) {
+                currentStock += amountRefilled;
+                // Must wake all potential sleepers on the stock
+                notifyAll();
+                newTruckStock = truckStock - amountRefilled;
+                System.out.println("Truck (" + newTruckStock + ") loads site " + id);
+                afficher();
+            }
         } else if (currentStock > BORNE_SUP) {
             currentStock = BORNE_SUP;
-            return truckStock + currentStock - BORNE_SUP;
-        } else {
-            return truckStock;
+            // notifyAll();
+            System.out.println("Truck (" + newTruckStock + ") unloads site " + id);
+            afficher();
+            newTruckStock = truckStock + currentStock - BORNE_SUP;
         }
+
+        return newTruckStock;
     }
 
     /**

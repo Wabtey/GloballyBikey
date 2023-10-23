@@ -33,7 +33,7 @@ public class SupplyTruck extends Thread {
             try {
                 Thread.sleep(sites[currentSite].distanceBetween(sites[nextSite]));
             } catch (InterruptedException e) {
-                Logger.getGlobal().warning("Sleep Interrupted!" + e);
+                Logger.getGlobal().warning("Sleep Interrupted!");
                 /* Clean up whatever needs to be handled before interrupting */
                 Thread.currentThread().interrupt();
             }
