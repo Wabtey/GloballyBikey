@@ -85,15 +85,17 @@ public class Site {
                 // Must wake all potential sleepers on the stock
                 notifyAll();
                 newTruckStock = truckStock - amountRefilled;
-                System.out.println("Truck (" + newTruckStock + ") loads site " + id);
+                System.out.println("Truck (" + newTruckStock + ") loads " + amountRefilled + " on site " + id);
                 afficher();
             }
         } else if (currentStock > BORNE_SUP) {
+            int amountUnloaded = currentStock - BORNE_SUP;
+            newTruckStock = truckStock + amountUnloaded;
+            System.out.println("Truck (" + newTruckStock + ") unloads " + amountUnloaded + " on  site " + id);
+
             currentStock = BORNE_SUP;
             // we must `notifyAll` to wake returning bike blocked at a site.
             notifyAll();
-            newTruckStock = truckStock + currentStock - BORNE_SUP;
-            System.out.println("Truck (" + newTruckStock + ") unloads site " + id);
             afficher();
         }
 
