@@ -89,12 +89,12 @@ public class Site {
                         + " on site " + id + "(" + currentStock + ")");
             }
         } else if (currentStock > BORNE_SUP) {
-            int amountUnloaded = currentStock - BORNE_SUP;
+            int amountUnloaded = currentStock - STOCK_INIT;
             newTruckStock = truckStock + amountUnloaded;
             System.out.println("Truck (" + truckStock + "->" + newTruckStock + ") unloads " + amountUnloaded
                     + " on  site " + id + "(" + currentStock + ")");
 
-            currentStock = BORNE_SUP;
+            currentStock = STOCK_INIT;
             // we must `notifyAll` to wake returning bike blocked at a site.
             notifyAll();
         }
