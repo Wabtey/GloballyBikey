@@ -24,7 +24,7 @@ class SystemeEmprunt {
         for (int i = 0; i < NB_CLIENTS; i++) {
             int siteDep = r.nextInt(NB_SITES);
             int siteArr = r.nextInt(NB_SITES);
-            customers[i] = new Customer(sites[siteDep], sites[siteArr]);
+            customers[i] = new Customer(i, sites[siteDep], sites[siteArr]);
             System.out.println("Customer " + i + ": site " + siteDep + " -> site " + siteArr + ".");
             // Each customer will start delayed
             customers[i].start();
@@ -41,17 +41,13 @@ class SystemeEmprunt {
             } catch (InterruptedException e) {
                 Logger.getGlobal().warning("Thread Customer " + i + " interrupted");
                 /* Clean up whatever needs to be handled before interrupting */
-                Thread.currentThread().interrupt();
+                customers[i].interrupt();
             }
         }
-        // We do not wait Truck to finish.
-        // try {
-        // truck.join();
-        // } catch (InterruptedException e) {
-        // Logger.getGlobal().warning("Thread Truck interrupted");
-        // /* Clean up whatever needs to be handled before interrupting */
-        // Thread.currentThread().interrupt();
-        // }
+
+        // There is no more customers on the road.
+
+        truck.interrupt();
     }
 
     public static void main(String[] args) {

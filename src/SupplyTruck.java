@@ -15,6 +15,11 @@ public class SupplyTruck extends Thread {
     @Override
     public void run() {
         while (true) {
+            if (Thread.currentThread().isInterrupted()) {
+                System.out.println("The truck is calling it a day");
+                break;
+            }
+
             // currentSite.try_refill();
             stock = sites[currentSite].adjustStock(stock);
 

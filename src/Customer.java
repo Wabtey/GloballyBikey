@@ -5,7 +5,10 @@ public class Customer extends Thread {
     Site startingSite;
     Site arrivalSite;
 
-    public Customer(Site startingSite, Site arrivalSite) {
+    int id;
+
+    public Customer(int id, Site startingSite, Site arrivalSite) {
+        this.id = id;
         this.startingSite = startingSite;
         this.arrivalSite = arrivalSite;
     }
@@ -24,5 +27,6 @@ public class Customer extends Thread {
         }
 
         arrivalSite.returnBike();
+        System.out.println("Customer " + id + ": Finished.");
     }
 }
