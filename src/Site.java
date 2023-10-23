@@ -91,9 +91,9 @@ public class Site {
         } else if (currentStock > BORNE_SUP) {
             currentStock = BORNE_SUP;
             // notifyAll();
+            newTruckStock = truckStock + currentStock - BORNE_SUP;
             System.out.println("Truck (" + newTruckStock + ") unloads site " + id);
             afficher();
-            newTruckStock = truckStock + currentStock - BORNE_SUP;
         }
 
         return newTruckStock;
