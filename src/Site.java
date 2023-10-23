@@ -42,7 +42,7 @@ public class Site {
         }
         currentStock--;
         // notifyAll();
-        afficher();
+        afficher(customerID, "borrowed");
     }
 
     /** Used by Customers */
@@ -61,7 +61,7 @@ public class Site {
         // (by others customers) they won't be woke up unless we `notifyAll()`
         // after each bike returned.
         notifyAll();
-        afficher();
+        afficher(customerID, "returned");
     }
 
     /**
@@ -85,18 +85,18 @@ public class Site {
                 // Must wake all potential sleepers on the stock
                 notifyAll();
                 newTruckStock = truckStock - amountRefilled;
-                System.out.println("Truck (" + newTruckStock + ") loads " + amountRefilled + " on site " + id);
-                afficher();
+                System.out.println("Truck (" + truckStock + "->" + newTruckStock + ") loads " + amountRefilled
+                        + " on site " + id + "(" + currentStock + ")");
             }
         } else if (currentStock > BORNE_SUP) {
             int amountUnloaded = currentStock - BORNE_SUP;
             newTruckStock = truckStock + amountUnloaded;
-            System.out.println("Truck (" + newTruckStock + ") unloads " + amountUnloaded + " on  site " + id);
+            System.out.println("Truck (" + truckStock + "->" + newTruckStock + ") unloads " + amountUnloaded
+                    + " on  site " + id + "(" + currentStock + ")");
 
             currentStock = BORNE_SUP;
             // we must `notifyAll` to wake returning bike blocked at a site.
             notifyAll();
-            afficher();
         }
 
         return newTruckStock;
@@ -105,7 +105,8 @@ public class Site {
     /**
      * Affiche l'etat de l'objet site
      */
-    public void afficher() {
-        System.out.println("The site " + id + " contains " + currentStock + " bike(s).");
+    public void afficher(int customerID, String pastAction) {
+        System.out.println("The site " + id + " contains " + currentStock + " bike(s), after that Customer "
+                + customerID + " " + pastAction + ".");
     }
 }

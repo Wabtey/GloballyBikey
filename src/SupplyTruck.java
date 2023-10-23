@@ -1,6 +1,9 @@
 import java.util.logging.Logger;
 
 public class SupplyTruck extends Thread {
+
+    static final int INITIAL_STOCK = 4;
+
     Site[] sites;
     int currentSite;
     int stock;
@@ -9,7 +12,7 @@ public class SupplyTruck extends Thread {
         this.sites = sites;
         // if sites.len() == 0...
         this.currentSite = 0;
-        this.stock = 3;
+        this.stock = INITIAL_STOCK;
     }
 
     @Override
