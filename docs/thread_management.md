@@ -33,6 +33,8 @@ We could add some strategy to our refill truck, like unloads some sites with "en
           long finish = System.currentTimeMillis();
           float timeElapsed = finish - start;
           System.out.println("Tasks completed in " + timeElapsed / 1000 + "s");
+
+          // We could add a sleep here to prevent overlapping prints.
       }
   }
   ```
