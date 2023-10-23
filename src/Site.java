@@ -90,7 +90,8 @@ public class Site {
             }
         } else if (currentStock > BORNE_SUP) {
             currentStock = BORNE_SUP;
-            // notifyAll();
+            // we must `notifyAll` to wake returning bike blocked at a site.
+            notifyAll();
             newTruckStock = truckStock + currentStock - BORNE_SUP;
             System.out.println("Truck (" + newTruckStock + ") unloads site " + id);
             afficher();
