@@ -2,7 +2,7 @@ import java.util.logging.Logger;
 
 public class SupplyTruck extends Thread {
 
-    static final int INITIAL_STOCK = 4;
+    static final int INITIAL_STOCK = 6;
 
     Site[] sites;
     int currentSite;
@@ -19,8 +19,8 @@ public class SupplyTruck extends Thread {
     public void run() {
         while (true) {
             // if (Thread.currentThread().isInterrupted()) {
-            //     System.out.println("The truck is calling it a day");
-            //     break;
+            // System.out.println("The truck is calling it a day");
+            // break;
             // }
 
             // currentSite.try_refill();

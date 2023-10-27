@@ -5,8 +5,8 @@ class SystemeEmprunt {
 
     /* Constantes de la simulation */
 
-    public static final int NB_SITES = 5;
-    static final int NB_CLIENTS = 20;
+    public static final int NB_SITES = 100;
+    static final int NB_CLIENTS = 500;
 
     private Site[] sites = new Site[NB_SITES];
     private Customer[] customers = new Customer[NB_CLIENTS];
@@ -17,7 +17,7 @@ class SystemeEmprunt {
 
         /* Instanciation des sites */
         for (int i = 0; i < NB_SITES; i++)
-            sites[i] = new Site(i);
+            sites[i] = new Site(i, NB_SITES);
 
         /* Instanciation and Starting des clients */
         Random r = new Random();

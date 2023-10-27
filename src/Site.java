@@ -6,15 +6,16 @@ public class Site {
     static final int STOCK_MAX = 10;
     static final int BORNE_SUP = 8;
     static final int BORNE_INF = 2;
-    // duplicate constant...
-    static final int NB_SITES = 5;
+
+    int totalNumberOfStocks;
 
     int id;
     int currentStock;
 
-    public Site(int id) {
+    public Site(int id, int totalNumberOfStocks) {
         this.id = id;
         this.currentStock = STOCK_INIT;
+        this.totalNumberOfStocks = totalNumberOfStocks;
     }
 
     public int distanceBetween(Site arrivalSite) {
@@ -22,7 +23,7 @@ public class Site {
             return arrivalSite.id - this.id;
         } else {
             // + 1 cause the first id is 0
-            return NB_SITES - this.id + 1 + arrivalSite.id;
+            return totalNumberOfStocks - this.id + 1 + arrivalSite.id;
         }
     }
 
