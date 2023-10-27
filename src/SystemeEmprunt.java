@@ -32,6 +32,7 @@ class SystemeEmprunt {
 
         /* Instanciation and Starting du camion */
         truck = new SupplyTruck(sites);
+        truck.setDaemon(true);
         truck.start();
 
         for (int i = 0; i < NB_CLIENTS; i++) {
@@ -47,7 +48,9 @@ class SystemeEmprunt {
 
         // There is no more customers on the road.
 
-        truck.interrupt();
+        // truck.interrupt();
+        // The truck being a Daemon, will stop itself being the only one left.
+        System.out.println("The truck is calling it a day");
     }
 
     public static void main(String[] args) {
