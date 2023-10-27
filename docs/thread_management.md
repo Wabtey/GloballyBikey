@@ -18,6 +18,18 @@ But it isn't completely certain because the truck could have refilled another si
 
 We could add some strategy to our refill truck, like unloads some sites with "enought" bike to loads those in critical state (customers waiting, or bike = 0).
 
+### Much more customers than bikes
+
+```java
+public static final int NB_SITES = 100;
+static final int NB_CLIENTS = 500;
+```
+
+We could compute the number of sites required to satisfy `x` customers,
+but we will create a dynamic solution.
+
+The truck must redistribute bike if there is some famine / stock with 0 bike.
+
 ## Debug Methods
 
 - Reading :)
