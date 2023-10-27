@@ -73,7 +73,7 @@ public class Site {
         int newTruckStock = truckStock;
 
         if (currentStock < BORNE_INF) {
-            int amountToRefill = BORNE_INF - currentStock;
+            int amountToRefill = STOCK_INIT - currentStock;
             int amountRefilled;
             if (truckStock >= amountToRefill) {
                 amountRefilled = amountToRefill;

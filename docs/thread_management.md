@@ -335,3 +335,196 @@ There is some initialisations logs missing (while using the *brute force* debugg
   The site 2 contains 6 bike(s), after that Customer 18 returned.
   Customer 18: Finished.
   ```
+
+### Truck's `STOCK_INIT` is set to 4
+
+- `bad_exec_8.log`
+
+  Customer 14 is famished. The truck has 4 by default in its stock and no other sites are above the superior boundary.
+  Solved by ??? Truck unloads to `STOCK_INIT` when a site is below `BORNE_INF` ???
+
+  ```log
+  Customer 0: site 4 -> site 2.
+  Customer 1: site 2 -> site 2.
+  Customer 2: site 3 -> site 1.
+  The site 4 contains 4 bike(s), after that Customer 0 borrowed.
+  The site 2 contains 4 bike(s), after that Customer 1 borrowed.
+  Customer 3: site 3 -> site 0.
+  The site 3 contains 4 bike(s), after that Customer 2 borrowed.
+  Customer 4: site 3 -> site 1.
+  The site 3 contains 3 bike(s), after that Customer 3 borrowed.
+  Customer 5: site 3 -> site 2.
+  The site 3 contains 2 bike(s), after that Customer 4 borrowed.
+  Customer 6: site 2 -> site 3.
+  The site 3 contains 1 bike(s), after that Customer 5 borrowed.
+  Customer 7: site 3 -> site 4.
+  The site 2 contains 3 bike(s), after that Customer 6 borrowed.
+  Customer 8: site 3 -> site 0.
+  The site 3 contains 0 bike(s), after that Customer 7 borrowed.
+  Customer 9: site 0 -> site 0.
+  Customer 8 waits a bike on site 3
+  Customer 10: site 2 -> site 2.
+  The site 0 contains 4 bike(s), after that Customer 9 borrowed.
+  Customer 11: site 4 -> site 2.
+  The site 2 contains 2 bike(s), after that Customer 10 borrowed.
+  Customer 12: site 3 -> site 2.
+  The site 4 contains 3 bike(s), after that Customer 11 borrowed.
+  Customer 13: site 2 -> site 2.
+  Customer 12 waits a bike on site 3
+  Customer 14: site 3 -> site 0.
+  The site 2 contains 1 bike(s), after that Customer 13 borrowed.
+  Customer 15: site 4 -> site 1.
+  Customer 14 waits a bike on site 3
+  Customer 16: site 2 -> site 1.
+  The site 4 contains 2 bike(s), after that Customer 15 borrowed.
+  Customer 17: site 2 -> site 4.
+  The site 2 contains 0 bike(s), after that Customer 16 borrowed.
+  Customer 18: site 1 -> site 4.
+  Customer 17 waits a bike on site 2
+  Customer 19: site 3 -> site 0.
+  The site 1 contains 4 bike(s), after that Customer 18 borrowed.
+  Customer 19 waits a bike on site 3
+  The site 3 contains 1 bike(s), after that Customer 6 returned.
+  Customer 6: Finished.
+  The site 3 contains 0 bike(s), after that Customer 8 borrowed.
+  Customer 19 waits a bike on site 3
+  Customer 14 waits a bike on site 3
+  Customer 12 waits a bike on site 3
+  The site 4 contains 3 bike(s), after that Customer 7 returned.
+  Customer 7: Finished.
+  The site 0 contains 5 bike(s), after that Customer 3 returned.
+  Customer 3: Finished.
+  Truck (4->2) loads 2 on site 2(2)
+  The site 2 contains 1 bike(s), after that Customer 17 borrowed.
+  The site 2 contains 2 bike(s), after that Customer 0 returned.
+  Customer 0: Finished.
+  The site 1 contains 5 bike(s), after that Customer 2 returned.
+  Customer 2: Finished.
+  The site 1 contains 6 bike(s), after that Customer 15 returned.
+  Customer 15: Finished.
+  The site 1 contains 7 bike(s), after that Customer 4 returned.
+  Customer 4: Finished.
+  The site 4 contains 4 bike(s), after that Customer 18 returned.
+  Customer 18: Finished.
+  The site 0 contains 6 bike(s), after that Customer 8 returned.
+  Customer 8: Finished.
+  Truck (2->0) loads 2 on site 3(2)
+  The site 3 contains 1 bike(s), after that Customer 19 borrowed.
+  The site 3 contains 0 bike(s), after that Customer 12 borrowed.
+  Customer 14 waits a bike on site 3
+  The site 2 contains 3 bike(s), after that Customer 11 returned.
+  Customer 11: Finished.
+  The site 2 contains 4 bike(s), after that Customer 5 returned.
+  Customer 5: Finished.
+  The site 4 contains 5 bike(s), after that Customer 17 returned.
+  Customer 17: Finished.
+  The site 2 contains 5 bike(s), after that Customer 1 returned.
+  Customer 1: Finished.
+  The site 1 contains 8 bike(s), after that Customer 16 returned.
+  Customer 16: Finished.
+  The site 0 contains 7 bike(s), after that Customer 9 returned.
+  Customer 9: Finished.
+  The site 2 contains 6 bike(s), after that Customer 10 returned.
+  Customer 10: Finished.
+  The site 2 contains 7 bike(s), after that Customer 13 returned.
+  Customer 13: Finished.
+  The site 0 contains 8 bike(s), after that Customer 19 returned.
+  Customer 19: Finished.
+  The site 2 contains 8 bike(s), after that Customer 12 returned.
+  Customer 12: Finished.
+  ```
+
+## Truck unloads to `STOCK_INIT` when a site is below `BORNE_INF`
+
+- `bad_exec_9.log`
+
+  Customer 12 is famished. The truck has 4 by default in its stock and no other sites are above the superior boundary.
+  Solved by ???
+
+  ```log
+  Customer 0: site 3 -> site 4.
+  Customer 1: site 3 -> site 4.
+  Customer 2: site 3 -> site 4.
+  The site 3 contains 4 bike(s), after that Customer 1 borrowed.
+  The site 3 contains 3 bike(s), after that Customer 0 borrowed.
+  The site 4 contains 6 bike(s), after that Customer 1 returned.
+  Customer 3: site 2 -> site 0.
+  Customer 1: Finished.
+  The site 4 contains 7 bike(s), after that Customer 0 returned.
+  Customer 0: Finished.
+  The site 3 contains 2 bike(s), after that Customer 2 borrowed.
+  Customer 4: site 4 -> site 1.
+  Customer 5: site 1 -> site 4.
+  The site 2 contains 4 bike(s), after that Customer 3 borrowed.
+  The truck is calling it a day
+  The site 4 contains 6 bike(s), after that Customer 4 borrowed.
+  Customer 6: site 3 -> site 1.
+  The site 1 contains 4 bike(s), after that Customer 5 borrowed.
+  Customer 7: site 3 -> site 2.
+  The site 4 contains 7 bike(s), after that Customer 2 returned.
+  Customer 2: Finished.
+  The site 3 contains 1 bike(s), after that Customer 6 borrowed.
+  The site 1 contains 5 bike(s), after that Customer 4 returned.
+  Customer 8: site 4 -> site 1.
+  Customer 4: Finished.
+  The site 3 contains 0 bike(s), after that Customer 7 borrowed.
+  The site 4 contains 8 bike(s), after that Customer 5 returned.
+  Customer 5: Finished.
+  The site 0 contains 6 bike(s), after that Customer 3 returned.
+  Customer 3: Finished.
+  The site 4 contains 7 bike(s), after that Customer 8 borrowed.
+  Customer 9: site 3 -> site 3.
+  The site 1 contains 6 bike(s), after that Customer 6 returned.
+  Customer 6: Finished.
+  Customer 10: site 0 -> site 4.
+  Customer 9 waits a bike on site 3
+  Customer 11: site 2 -> site 0.
+  The site 0 contains 5 bike(s), after that Customer 10 borrowed.
+  Customer 12: site 3 -> site 0.
+  Customer 13: site 2 -> site 3.
+  Customer 14: site 2 -> site 0.
+  Customer 15: site 0 -> site 4.
+  Customer 16: site 1 -> site 1.
+  Customer 17: site 3 -> site 1.
+  The site 2 contains 3 bike(s), after that Customer 11 borrowed.
+  Customer 18: site 2 -> site 2.
+  Customer 12 waits a bike on site 3
+  The site 2 contains 2 bike(s), after that Customer 13 borrowed.
+  The site 1 contains 5 bike(s), after that Customer 16 borrowed.
+  The site 2 contains 1 bike(s), after that Customer 14 borrowed.
+  Customer 17 waits a bike on site 3
+  The site 0 contains 4 bike(s), after that Customer 15 borrowed.
+  The site 2 contains 0 bike(s), after that Customer 18 borrowed.
+  Customer 19: site 4 -> site 2.
+  The site 4 contains 6 bike(s), after that Customer 19 borrowed.
+  The site 3 contains 1 bike(s), after that Customer 13 returned.
+  Customer 13: Finished.
+  The site 3 contains 0 bike(s), after that Customer 9 borrowed.
+  Customer 17 waits a bike on site 3
+  Customer 12 waits a bike on site 3
+  The site 1 contains 6 bike(s), after that Customer 8 returned.
+  Customer 8: Finished.
+  Truck (4->0) loads 4 on site 2(4)
+  The site 2 contains 5 bike(s), after that Customer 7 returned.
+  Customer 7: Finished.
+  The site 4 contains 7 bike(s), after that Customer 10 returned.
+  Customer 10: Finished.
+  The site 0 contains 5 bike(s), after that Customer 11 returned.
+  Customer 11: Finished.
+  The site 0 contains 6 bike(s), after that Customer 14 returned.
+  Customer 14: Finished.
+  The site 4 contains 8 bike(s), after that Customer 15 returned.
+  Customer 15: Finished.
+  The site 2 contains 6 bike(s), after that Customer 19 returned.
+  Customer 19: Finished.
+  The site 1 contains 7 bike(s), after that Customer 16 returned.
+  Customer 16: Finished.
+  The site 2 contains 7 bike(s), after that Customer 18 returned.
+  Customer 18: Finished.
+  The site 3 contains 1 bike(s), after that Customer 9 returned.
+  Customer 9: Finished.
+  The site 3 contains 0 bike(s), after that Customer 17 borrowed.
+  Customer 12 waits a bike on site 3
+  The site 1 contains 8 bike(s), after that Customer 17 returned.
+  Customer 17: Finished.
+  ```

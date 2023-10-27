@@ -51,13 +51,15 @@ class SystemeEmprunt {
     }
 
     public static void main(String[] args) {
-        long start = System.currentTimeMillis();
+        while (true) {
+            long start = System.currentTimeMillis();
 
-        new SystemeEmprunt();
+            new SystemeEmprunt();
 
-        long finish = System.currentTimeMillis();
-        float timeElapsed = finish - start;
-        System.out.println("Tasks completed in " + timeElapsed / 1000 + "s");
+            long finish = System.currentTimeMillis();
+            float timeElapsed = finish - start;
+            System.out.println("Tasks completed in " + timeElapsed / 1000 + "s");
+        }
     }
 
 } // SystemeEmprunt
