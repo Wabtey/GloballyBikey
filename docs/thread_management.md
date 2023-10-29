@@ -30,6 +30,13 @@ but we will create a dynamic solution.
 
 The truck must redistribute bike if there is some famine / stock with 0 bike.
 
+### Smart Truck
+
+The supply truck will map out the sites to keep track of all stocks.
+If the current site is under the lower boundary, it will behave the same (try to restock to the `INITIAL_STOCK`).
+If there is a site with 0 bike in stock,
+the truck will anticipate and unload the largest stock of all the site before the first site at 0.
+
 ## Debug Methods
 
 - Reading :)
