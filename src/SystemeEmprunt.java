@@ -5,8 +5,8 @@ class SystemeEmprunt {
 
     /* Constantes de la simulation */
 
-    public static final int NB_SITES = 100;
-    static final int NB_CLIENTS = 500;
+    public static final int NB_SITES = 500;
+    static final int NB_CLIENTS = 100;
 
     private Site[] sites = new Site[NB_SITES];
     private Customer[] customers = new Customer[NB_CLIENTS];
@@ -47,8 +47,6 @@ class SystemeEmprunt {
         }
 
         // There is no more customers on the road.
-
-        // truck.interrupt();
         // The truck being a Daemon, will stop itself being the only one left.
         System.out.println("The truck is calling it a day");
     }

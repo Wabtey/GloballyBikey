@@ -7,15 +7,15 @@ public class Site {
     static final int BORNE_SUP = 8;
     static final int BORNE_INF = 2;
 
-    int totalNumberOfStocks;
+    int totalNumberOfSites;
 
     int id;
     int currentStock;
 
-    public Site(int id, int totalNumberOfStocks) {
+    public Site(int id, int totalNumberOfSites) {
         this.id = id;
         this.currentStock = STOCK_INIT;
-        this.totalNumberOfStocks = totalNumberOfStocks;
+        this.totalNumberOfSites = totalNumberOfSites;
     }
 
     public int distanceBetween(Site arrivalSite) {
@@ -23,7 +23,7 @@ public class Site {
             return arrivalSite.id - this.id;
         } else {
             // + 1 cause the first id is 0
-            return totalNumberOfStocks - this.id + 1 + arrivalSite.id;
+            return totalNumberOfSites - this.id + 1 + arrivalSite.id;
         }
     }
 
