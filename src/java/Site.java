@@ -1,3 +1,5 @@
+package java;
+
 public class Site {
 
     /* Constantes communes à tous les sites */
