@@ -1,4 +1,4 @@
-package java;
+package globalBike;
 
 import java.util.logging.Logger;
 

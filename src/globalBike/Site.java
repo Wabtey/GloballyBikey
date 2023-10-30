@@ -1,4 +1,4 @@
-package java;
+package globalBike;
 
 public class Site {
 
