@@ -17,7 +17,7 @@ class SystemeEmprunt {
 
         /* Instanciation des sites */
         for (int i = 0; i < NB_SITES; i++)
-            sites[i] = new Site(i, NB_SITES);
+            sites[i] = new Site(i);
 
         /* Instanciation and Starting des clients */
         Random r = new Random();

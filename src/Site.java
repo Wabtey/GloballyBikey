@@ -12,19 +12,21 @@ public class Site {
     int id;
     int currentStock;
 
-    public Site(int id, int totalNumberOfSites) {
+    public Site(int id) {
         this.id = id;
         this.currentStock = STOCK_INIT;
-        this.totalNumberOfSites = totalNumberOfSites;
+        this.totalNumberOfSites = SystemeEmprunt.NB_SITES;
     }
 
     public int distanceBetween(Site arrivalSite) {
-        if (arrivalSite.id > this.id) {
-            return arrivalSite.id - this.id;
-        } else {
-            // + 1 cause the first id is 0
-            return totalNumberOfSites - this.id + 1 + arrivalSite.id;
-        }
+        return arrivalSite.id > this.id ? arrivalSite.id - this.id : totalNumberOfSites - this.id + 1 + arrivalSite.id;
+
+        // if (arrivalSite.id > this.id) {
+        // return arrivalSite.id - this.id;
+        // } else {
+        // // + 1 cause the first id is 0
+        // return totalNumberOfSites - this.id + 1 + arrivalSite.id;
+        // }
     }
 
     // NOTE: In this setup, customers must wait each other in a Site and same for
@@ -75,12 +77,8 @@ public class Site {
 
         if (currentStock < BORNE_INF) {
             int amountToRefill = STOCK_INIT - currentStock;
-            int amountRefilled;
-            if (truckStock >= amountToRefill) {
-                amountRefilled = amountToRefill;
-            } else {
-                amountRefilled = truckStock;
-            }
+            int amountRefilled = truckStock >= amountToRefill ? amountToRefill : truckStock;
+
             if (amountRefilled > 0) {
                 currentStock += amountRefilled;
                 // Must wake all potential sleepers on the stock

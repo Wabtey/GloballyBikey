@@ -26,12 +26,7 @@ public class SupplyTruck extends Thread {
             // currentSite.try_refill();
             stock = sites[currentSite].adjustStock(stock);
 
-            int nextSite;
-            if (currentSite < sites.length - 1) {
-                nextSite = currentSite + 1;
-            } else {
-                nextSite = 0;
-            }
+            int nextSite = currentSite < sites.length - 1 ? currentSite + 1 : 0;
 
             try {
                 Thread.sleep(sites[currentSite].distanceBetween(sites[nextSite]));
