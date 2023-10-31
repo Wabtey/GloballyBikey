@@ -1,4 +1,4 @@
-package globalBike;
+package globalbike;
 
 import java.util.Random;
 import java.util.logging.Logger;
@@ -7,6 +7,11 @@ class SystemeEmprunt {
 
     /* Constantes de la simulation */
 
+    /**
+     * Must be > 0
+     */
+    public static final int NB_SITES = 5;
+    static final int NB_CLIENTS = 20;
 
     private Site[] sites = new Site[NB_SITES];
     private Customer[] customers = new Customer[NB_CLIENTS];
