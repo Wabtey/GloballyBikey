@@ -1,3 +1,5 @@
+package globalbike;
+
 import java.util.logging.Logger;
 
 public class Customer extends Thread {

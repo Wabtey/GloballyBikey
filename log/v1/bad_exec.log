@@ -1,0 +1,80 @@
+Customer 0: site 4 -> site 4.
+Customer 1: site 1 -> site 0.
+Customer 2: site 0 -> site 2.
+Customer 3: site 0 -> site 0.
+Customer 4: site 0 -> site 1.
+Customer 5: site 0 -> site 4.
+Customer 6: site 2 -> site 2.
+Customer 7: site 0 -> site 2.
+Customer 8: site 4 -> site 2.
+Customer 9: site 0 -> site 3.
+Customer 10: site 0 -> site 3.
+Customer 11: site 2 -> site 0.
+Customer 12: site 0 -> site 0.
+Customer 13: site 1 -> site 0.
+Customer 14: site 2 -> site 2.
+Customer 15: site 4 -> site 2.
+Customer 16: site 2 -> site 1.
+Customer 17: site 0 -> site 3.
+Customer 18: site 1 -> site 3.
+Customer 19: site 4 -> site 4.
+The site 4 contains 4 bike(s).
+The site 1 contains 4 bike(s).
+The site 2 contains 4 bike(s).
+The site 0 contains 4 bike(s).
+The site 4 contains 3 bike(s).
+The site 1 contains 3 bike(s).
+The site 2 contains 3 bike(s).
+The site 0 contains 3 bike(s).
+The site 4 contains 2 bike(s).
+The site 1 contains 2 bike(s).
+The site 2 contains 2 bike(s).
+The site 0 contains 2 bike(s).
+The site 4 contains 1 bike(s).
+The site 2 contains 1 bike(s).
+The site 0 contains 1 bike(s).
+The site 0 contains 0 bike(s).
+Customer 7 waits a bike on site 0
+Customer 5 waits a bike on site 0
+Customer 4 waits a bike on site 0
+Customer 3 waits a bike on site 0
+The site 0 contains 1 bike(s).
+The site 0 contains 0 bike(s).
+Customer 4 waits a bike on site 0
+Customer 5 waits a bike on site 0
+The site 2 contains 2 bike(s).
+The site 3 contains 6 bike(s).
+The site 3 contains 7 bike(s).
+The site 2 contains 3 bike(s).
+The site 3 contains 8 bike(s).
+The site 3 contains 9 bike(s).
+The site 2 contains 4 bike(s).
+The site 2 contains 5 bike(s).
+The site 0 contains 1 bike(s).
+The site 0 contains 2 bike(s).
+The site 1 contains 3 bike(s).
+Customer 2: Finished.
+Customer 11: Finished.
+Customer 16: Finished.
+Customer 7: Finished.
+Customer 9: Finished.
+Customer 8: Finished.
+Customer 18: Finished.
+Customer 1: Finished.
+Customer 10: Finished.
+Customer 17: Finished.
+The site 0 contains 3 bike(s).
+Customer 15: Finished.
+Customer 13: Finished.
+The site 4 contains 3 bike(s).
+The site 2 contains 6 bike(s).
+Customer 0: Finished.
+Customer 6: Finished.
+The site 2 contains 7 bike(s).
+Customer 14: Finished.
+The site 0 contains 4 bike(s).
+The site 4 contains 4 bike(s).
+Customer 12: Finished.
+Customer 19: Finished.
+The site 0 contains 5 bike(s).
+Customer 3: Finished.

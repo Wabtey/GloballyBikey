@@ -1,0 +1,229 @@
+Customer 0: site 3 -> site 0.
+Customer 1: site 2 -> site 0.
+Customer 2: site 2 -> site 0.
+Customer 3: site 4 -> site 2.
+Customer 4: site 4 -> site 1.
+Customer 5: site 3 -> site 4.
+Customer 6: site 4 -> site 1.
+Customer 7: site 4 -> site 3.
+Customer 8: site 4 -> site 2.
+Customer 9: site 0 -> site 3.
+Customer 10: site 0 -> site 1.
+Customer 11: site 3 -> site 3.
+Customer 12: site 3 -> site 4.
+Customer 13: site 4 -> site 2.
+Customer 14: site 4 -> site 1.
+Customer 15: site 4 -> site 2.
+Customer 16: site 4 -> site 4.
+Customer 17: site 2 -> site 3.
+Customer 18: site 1 -> site 4.
+Customer 19: site 3 -> site 2.
+Customer 20: site 1 -> site 2.
+Customer 21: site 0 -> site 3.
+Customer 22: site 4 -> site 0.
+Customer 23: site 2 -> site 3.
+Customer 24: site 4 -> site 4.
+Customer 25: site 3 -> site 2.
+Customer 26: site 1 -> site 2.
+Customer 27: site 4 -> site 4.
+Customer 28: site 0 -> site 0.
+Customer 29: site 0 -> site 1.
+Customer 30: site 4 -> site 0.
+Customer 31: site 4 -> site 2.
+Customer 32: site 1 -> site 2.
+Customer 33: site 3 -> site 2.
+Customer 34: site 2 -> site 2.
+Customer 35: site 2 -> site 3.
+Customer 36: site 0 -> site 1.
+Customer 37: site 4 -> site 3.
+Customer 38: site 4 -> site 0.
+The site 3 contains 4 bike(s), after that Customer 0 borrowed.
+The site 0 contains 4 bike(s), after that Customer 9 borrowed.
+The site 3 contains 3 bike(s), after that Customer 33 borrowed.
+The site 4 contains 4 bike(s), after that Customer 3 borrowed.
+The site 2 contains 4 bike(s), after that Customer 1 borrowed.
+The site 0 contains 3 bike(s), after that Customer 36 borrowed.
+The site 2 contains 3 bike(s), after that Customer 35 borrowed.
+The site 0 contains 2 bike(s), after that Customer 29 borrowed.
+The site 3 contains 2 bike(s), after that Customer 25 borrowed.
+Customer 39: site 1 -> site 1.
+The site 1 contains 4 bike(s), after that Customer 18 borrowed.
+The site 4 contains 3 bike(s), after that Customer 37 borrowed.
+The site 2 contains 2 bike(s), after that Customer 34 borrowed.
+The site 0 contains 1 bike(s), after that Customer 28 borrowed.
+The site 2 contains 1 bike(s), after that Customer 23 borrowed.
+The site 0 contains 0 bike(s), after that Customer 21 borrowed.
+The site 3 contains 1 bike(s), after that Customer 19 borrowed.
+Customer 40: site 1 -> site 2.
+The site 3 contains 0 bike(s), after that Customer 12 borrowed.
+The site 1 contains 3 bike(s), after that Customer 32 borrowed.
+The site 4 contains 2 bike(s), after that Customer 30 borrowed.
+The site 2 contains 0 bike(s), after that Customer 17 borrowed.
+The site 1 contains 2 bike(s), after that Customer 26 borrowed.
+The site 4 contains 1 bike(s), after that Customer 31 borrowed.
+The site 1 contains 1 bike(s), after that Customer 20 borrowed.
+Customer 41: site 3 -> site 4.
+The site 1 contains 0 bike(s), after that Customer 39 borrowed.
+The site 1 contains 1 bike(s), after that Customer 29 returned.
+The site 4 contains 0 bike(s), after that Customer 27 borrowed.
+Customer 42: site 0 -> site 4.
+The site 1 contains 2 bike(s), after that Customer 36 returned.
+The site 1 contains 1 bike(s), after that Customer 40 borrowed.
+Customer 43: site 1 -> site 3.
+Customer 44: site 0 -> site 3.
+The site 1 contains 0 bike(s), after that Customer 43 borrowed.
+Customer 45: site 2 -> site 0.
+Customer 46: site 4 -> site 1.
+Customer 47: site 3 -> site 3.
+Customer 48: site 4 -> site 3.
+Customer 49: site 2 -> site 1.
+Customer 11 waits a bike on site 3
+Customer 10 waits a bike on site 0
+Customer 5 waits a bike on site 3
+Customer 2 waits a bike on site 2
+Customer 24 waits a bike on site 4
+The site 0 contains 1 bike(s), after that Customer 28 returned.
+Customer 47 waits a bike on site 3
+The site 3 contains 1 bike(s), after that Customer 21 returned.
+The site 2 contains 1 bike(s), after that Customer 31 returned.
+Customer 36: Finished.
+Customer 22 waits a bike on site 4
+The site 0 contains 0 bike(s), after that Customer 44 borrowed.
+Customer 29: Finished.
+Customer 28: Finished.
+Customer 31: Finished.
+Customer 21: Finished.
+The site 3 contains 0 bike(s), after that Customer 41 borrowed.
+Customer 16 waits a bike on site 4
+The site 3 contains 1 bike(s), after that Customer 17 returned.
+The site 2 contains 0 bike(s), after that Customer 45 borrowed.
+Customer 42 waits a bike on site 0
+Customer 15 waits a bike on site 4
+Customer 17: Finished.
+Customer 14 waits a bike on site 4
+Customer 13 waits a bike on site 4
+The site 3 contains 2 bike(s), after that Customer 23 returned.
+Customer 23: Finished.
+The site 2 contains 1 bike(s), after that Customer 19 returned.
+Customer 19: Finished.
+The site 2 contains 2 bike(s), after that Customer 40 returned.
+Customer 40: Finished.
+The site 2 contains 3 bike(s), after that Customer 20 returned.
+Customer 20: Finished.
+The site 0 contains 1 bike(s), after that Customer 30 returned.
+Customer 30: Finished.
+The site 0 contains 2 bike(s), after that Customer 1 returned.
+The site 1 contains 1 bike(s), after that Customer 39 returned.
+Customer 39: Finished.
+The site 2 contains 4 bike(s), after that Customer 26 returned.
+Customer 26: Finished.
+The site 2 contains 5 bike(s), after that Customer 32 returned.
+Customer 8 waits a bike on site 4
+The site 3 contains 3 bike(s), after that Customer 37 returned.
+Customer 37: Finished.
+The site 3 contains 4 bike(s), after that Customer 9 returned.
+Customer 9: Finished.
+Customer 7 waits a bike on site 4
+Customer 6 waits a bike on site 4
+Customer 1: Finished.
+Truck is in 0 with 5 bike(s)
+The site 0 contains 3 bike(s), after that Customer 0 returned.
+Customer 32: Finished.
+The site 0 contains 2 bike(s), after that Customer 42 borrowed.
+The site 2 contains 6 bike(s), after that Customer 25 returned.
+Customer 25: Finished.
+The site 2 contains 7 bike(s), after that Customer 33 returned.
+The site 3 contains 5 bike(s), after that Customer 35 returned.
+Customer 4 waits a bike on site 4
+Customer 0: Finished.
+The site 0 contains 1 bike(s), after that Customer 10 borrowed.
+Customer 35: Finished.
+Customer 33: Finished.
+The site 2 contains 8 bike(s), after that Customer 3 returned.
+The site 4 contains 1 bike(s), after that Customer 27 returned.
+Customer 3: Finished.
+Customer 27: Finished.
+The site 3 contains 6 bike(s), after that Customer 44 returned.
+Customer 44: Finished.
+The site 3 contains 7 bike(s), after that Customer 43 returned.
+Customer 43: Finished.
+The site 2 contains 7 bike(s), after that Customer 49 borrowed.
+The site 4 contains 2 bike(s), after that Customer 41 returned.
+The site 2 contains 8 bike(s), after that Customer 34 returned.
+The site 3 contains 6 bike(s), after that Customer 47 borrowed.
+The site 2 contains 7 bike(s), after that Customer 2 borrowed.
+Customer 41: Finished.
+Customer 34: Finished.
+Truck is in 1 with 5 bike(s)
+The site 3 contains 5 bike(s), after that Customer 5 borrowed.
+The site 4 contains 1 bike(s), after that Customer 48 borrowed.
+The site 0 contains 2 bike(s), after that Customer 45 returned.
+The site 3 contains 4 bike(s), after that Customer 11 borrowed.
+Customer 45: Finished.
+The site 4 contains 0 bike(s), after that Customer 46 borrowed.
+The site 4 contains 1 bike(s), after that Customer 12 returned.
+Customer 12: Finished.
+The site 4 contains 2 bike(s), after that Customer 18 returned.
+Customer 18: Finished.
+The site 4 contains 1 bike(s), after that Customer 38 borrowed.
+The site 4 contains 2 bike(s), after that Customer 5 returned.
+Customer 5: Finished.
+The site 4 contains 1 bike(s), after that Customer 4 borrowed.
+The site 4 contains 0 bike(s), after that Customer 6 borrowed.
+Customer 7 waits a bike on site 4
+Customer 8 waits a bike on site 4
+Customer 13 waits a bike on site 4
+Customer 14 waits a bike on site 4
+Customer 15 waits a bike on site 4
+Customer 16 waits a bike on site 4
+Customer 22 waits a bike on site 4
+Customer 24 waits a bike on site 4
+The site 0 contains 3 bike(s), after that Customer 2 returned.
+Customer 2: Finished.
+The site 4 contains 1 bike(s), after that Customer 42 returned.
+Customer 42: Finished.
+The site 4 contains 0 bike(s), after that Customer 7 borrowed.
+Customer 24 waits a bike on site 4
+Customer 22 waits a bike on site 4
+Customer 16 waits a bike on site 4
+The site 0 contains 4 bike(s), after that Customer 38 returned.
+Customer 38: Finished.
+Customer 15 waits a bike on site 4
+Customer 14 waits a bike on site 4
+Customer 13 waits a bike on site 4
+Customer 8 waits a bike on site 4
+The site 3 contains 5 bike(s), after that Customer 48 returned.
+Customer 48: Finished.
+The site 3 contains 6 bike(s), after that Customer 47 returned.
+Customer 47: Finished.
+The site 3 contains 7 bike(s), after that Customer 11 returned.
+Customer 11: Finished.
+The site 3 contains 8 bike(s), after that Customer 7 returned.
+Customer 7: Finished.
+Truck (5->1) loads 4 on site 1 (new=5)
+The site 1 contains 6 bike(s), after that Customer 6 returned.
+Customer 6: Finished.
+The site 1 contains 7 bike(s), after that Customer 4 returned.
+Customer 4: Finished.
+The site 1 contains 8 bike(s), after that Customer 49 returned.
+Customer 49: Finished.
+The site 1 contains 9 bike(s), after that Customer 46 returned.
+Customer 46: Finished.
+The site 1 contains 10 bike(s), after that Customer 10 returned.
+Customer 10: Finished.
+Truck is in 2 with 1 bike(s)
+Truck is in 3 with 1 bike(s)
+Truck is in 0 with 1 bike(s)
+Truck is in 1 with 1 bike(s)
+Truck (1->6) unloads 5 on  site 1 (new=5)
+Truck is in 2 with 6 bike(s)
+Truck is in 3 with 6 bike(s)
+Truck is in 0 with 6 bike(s)
+Truck is in 1 with 6 bike(s)
+Truck is in 2 with 6 bike(s)
+Truck is in 3 with 6 bike(s)
+Truck is in 0 with 6 bike(s)
+Truck is in 1 with 6 bike(s)
+Truck is in 2 with 6 bike(s)
+Truck is in 3 with 6 bike(s)
+... (infinity) ...

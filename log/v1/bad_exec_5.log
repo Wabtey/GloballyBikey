@@ -1,0 +1,94 @@
+The site 3 contains 3 bike(s).
+Customer 3: site 1 -> site 1.
+The site 3 contains 2 bike(s).
+Customer 4: site 4 -> site 3.
+The site 1 contains 4 bike(s).
+Customer 5: site 3 -> site 2.
+The site 4 contains 4 bike(s).
+Customer 6: site 3 -> site 2.
+The site 3 contains 1 bike(s).
+Customer 7: site 3 -> site 1.
+The site 3 contains 0 bike(s).
+Customer 8: site 3 -> site 0.
+Customer 7 waits a bike on site 3
+Customer 9: site 3 -> site 0.
+Customer 8 waits a bike on site 3
+Customer 10: site 3 -> site 0.
+Customer 9 waits a bike on site 3
+Customer 11: site 1 -> site 2.
+Customer 10 waits a bike on site 3
+Customer 12: site 2 -> site 0.
+The site 1 contains 3 bike(s).
+Customer 13: site 1 -> site 2.
+The site 2 contains 4 bike(s).
+Customer 14: site 4 -> site 1.
+The site 1 contains 2 bike(s).
+Customer 15: site 3 -> site 0.
+The site 4 contains 3 bike(s).
+Customer 16: site 3 -> site 1.
+Customer 15 waits a bike on site 3
+Customer 17: site 0 -> site 3.
+Customer 16 waits a bike on site 3
+Customer 18: site 1 -> site 1.
+The site 0 contains 4 bike(s).
+Customer 19: site 0 -> site 1.
+The site 1 contains 1 bike(s).
+The site 0 contains 3 bike(s).
+The site 4 contains 4 bike(s).
+Customer 2: Finished.
+The site 2 contains 5 bike(s).
+Customer 11: Finished.
+The site 2 contains 6 bike(s).
+Customer 13: Finished.
+The site 1 contains 2 bike(s).
+Customer 19: Finished.
+The site 0 contains 4 bike(s).
+Customer 1: Finished.
+The site 1 contains 3 bike(s).
+Customer 14: Finished.
+The site 3 contains 1 bike(s).
+Customer 17: Finished.
+The site 3 contains 0 bike(s).
+Customer 16 waits a bike on site 3
+Customer 15 waits a bike on site 3
+Customer 10 waits a bike on site 3
+Customer 9 waits a bike on site 3
+The site 1 contains 4 bike(s).
+Customer 0: Finished.
+Customer 8 waits a bike on site 3
+Truck (1) loads 2 on site 3
+The site 3 contains 2 bike(s).
+The site 3 contains 1 bike(s).
+The site 3 contains 0 bike(s).
+Customer 9 waits a bike on site 3
+Customer 10 waits a bike on site 3
+Customer 15 waits a bike on site 3
+The site 0 contains 5 bike(s).
+Customer 12: Finished.
+The site 3 contains 1 bike(s).
+Customer 4: Finished.
+The site 3 contains 0 bike(s).
+Customer 15 waits a bike on site 3
+Customer 10 waits a bike on site 3
+The site 2 contains 7 bike(s).
+Customer 5: Finished.
+The site 2 contains 8 bike(s).
+Customer 6: Finished.
+The site 1 contains 5 bike(s).
+Customer 3: Finished.
+The site 1 contains 6 bike(s).
+Customer 18: Finished.
+The site 0 contains 6 bike(s).
+Customer 8: Finished.
+The site 1 contains 7 bike(s).
+Customer 7: Finished.
+The site 1 contains 8 bike(s).
+Customer 16: Finished.
+The site 0 contains 7 bike(s).
+Customer 9: Finished.
+Truck (0) loads 1 on site 3
+The site 3 contains 1 bike(s).
+The site 3 contains 0 bike(s).
+Customer 10 waits a bike on site 3
+The site 0 contains 8 bike(s).
+Customer 15: Finished.

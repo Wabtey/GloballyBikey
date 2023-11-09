@@ -1,3 +1,5 @@
+package globalbike;
+
 public class Site {
 
     /* Constantes communes à tous les sites */
@@ -6,8 +8,8 @@ public class Site {
     static final int STOCK_MAX = 10;
     static final int BORNE_SUP = 8;
     static final int BORNE_INF = 2;
-    // duplicate constant...
-    static final int NB_SITES = 5;
+
+    int totalNumberOfSites;
 
     int id;
     int currentStock;
@@ -15,15 +17,18 @@ public class Site {
     public Site(int id) {
         this.id = id;
         this.currentStock = STOCK_INIT;
+        this.totalNumberOfSites = SystemeEmprunt.NB_SITES;
     }
 
     public int distanceBetween(Site arrivalSite) {
-        if (arrivalSite.id > this.id) {
-            return arrivalSite.id - this.id;
-        } else {
-            // + 1 cause the first id is 0
-            return NB_SITES - this.id + 1 + arrivalSite.id;
-        }
+        return arrivalSite.id > this.id ? arrivalSite.id - this.id : totalNumberOfSites - this.id + 1 + arrivalSite.id;
+
+        // if (arrivalSite.id > this.id) {
+        // return arrivalSite.id - this.id;
+        // } else {
+        // // + 1 cause the first id is 0
+        // return totalNumberOfSites - this.id + 1 + arrivalSite.id;
+        // }
     }
 
     // NOTE: In this setup, customers must wait each other in a Site and same for
@@ -41,7 +46,9 @@ public class Site {
             }
         }
         currentStock--;
-        // notifyAll();
+        // necessary to avoid not waking up returning customers;
+        // Seen in `log/v2/c26_is_crying.log`.
+        notifyAll();
         afficher(customerID, "borrowed");
     }
 
@@ -74,27 +81,49 @@ public class Site {
 
         if (currentStock < BORNE_INF) {
             int amountToRefill = STOCK_INIT - currentStock;
-            int amountRefilled;
-            if (truckStock >= amountToRefill) {
-                amountRefilled = amountToRefill;
-            } else {
-                amountRefilled = truckStock;
-            }
+            int amountRefilled = truckStock >= amountToRefill ? amountToRefill : truckStock;
+
             if (amountRefilled > 0) {
                 currentStock += amountRefilled;
-                // Must wake all potential sleepers on the stock
-                notifyAll();
                 newTruckStock = truckStock - amountRefilled;
                 System.out.println("Truck (" + truckStock + "->" + newTruckStock + ") loads " + amountRefilled
-                        + " on site " + id + "(" + currentStock + ")");
+                        + " on site " + id + " (new=" + currentStock + ")");
+
+                // Must wake all potential sleepers on the stock
+                notifyAll();
             }
         } else if (currentStock > BORNE_SUP) {
             int amountUnloaded = currentStock - STOCK_INIT;
             newTruckStock = truckStock + amountUnloaded;
-            System.out.println("Truck (" + truckStock + "->" + newTruckStock + ") unloads " + amountUnloaded
-                    + " on  site " + id + "(" + currentStock + ")");
-
             currentStock = STOCK_INIT;
+            System.out.println("Truck (" + truckStock + "->" + newTruckStock + ") unloads " + amountUnloaded
+                    + " on  site " + id + " (new=" + currentStock + ")");
+
+            // we must `notifyAll` to wake returning bike blocked at a site.
+            notifyAll();
+        }
+
+        return newTruckStock;
+    }
+
+    /**
+     * This function overrides `adjustStock()` !
+     * Used by Truck, to retrieve at most `SupplyTruck.INITIAL_STOCK` whatever the
+     * site's state.
+     * 
+     * @return the new truck's stock.
+     */
+    public synchronized int forceRefillTruck(int truckStock) {
+        int newTruckStock = truckStock;
+
+        if (currentStock > 0) {
+            int amountUnloaded = currentStock >= SupplyTruck.INITIAL_STOCK ? SupplyTruck.INITIAL_STOCK
+                    : currentStock;
+            this.currentStock -= amountUnloaded;
+            newTruckStock += amountUnloaded;
+            System.out.println("Truck (" + truckStock + "->" + newTruckStock + ") force unloads " + amountUnloaded
+                    + " on  site " + id + " (new=" + currentStock + ")");
+
             // we must `notifyAll` to wake returning bike blocked at a site.
             notifyAll();
         }
