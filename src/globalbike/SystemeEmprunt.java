@@ -57,6 +57,7 @@ class SystemeEmprunt {
     }
 
     public static void main(String[] args) {
+        // while (true) {
         long start = System.currentTimeMillis();
 
         new SystemeEmprunt();
@@ -64,6 +65,7 @@ class SystemeEmprunt {
         long finish = System.currentTimeMillis();
         float timeElapsed = finish - start;
         System.out.println("Tasks completed in " + timeElapsed / 1000 + "s");
+        // }
     }
 
 } // SystemeEmprunt

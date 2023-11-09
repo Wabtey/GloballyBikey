@@ -68,26 +68,7 @@ the truck will anticipate and unload the largest stock of all the site before th
   Truck (5->10) force unloads 5 on  site 1 (new=0)
   ```
 
-- Freeze State
-  - Infinity loop
-
-    ```log
-    Site Choosen: 4 - 10/10
-    Current Site: 1
-    Starving Site: 0 - 2/10
-    Largest Sites are:
-      - Site 4: 10/10
-    Site Choosen: 4 - 10/10
-    Current Site: 1
-    Starving Site: 0 - 2/10
-    Largest Sites are:
-      - Site 4: 10/10
-    ...
-    ```
-
-  - Some Customer are stuck waiting to return their bike in `log/v2/c9_cant_return_bike_in_site4`
-
-- Comparable cast impossible (idk why but it's not important cause it's for debug prints)
+- ~~Comparable cast impossible (idk why but it's not important cause it's for debug prints)~~
 
 ## Debug Methods
 
