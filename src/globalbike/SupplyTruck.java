@@ -116,14 +116,18 @@ public class SupplyTruck extends Thread {
                 + "/" + Site.STOCK_MAX + "\n" +
                 "Largest Sites are:");
 
-        int max = pCLS.isPresent() ? pCLS.get().currentStock : 0;
-        List<Site> largestSites = siteMap.values().stream()
-                .filter(site -> site.currentStock == max)
-                .sorted() // is this mandatory ? (see `values()`)
-                .collect(Collectors.toList());
+        // DEBUG: to visuliaze which site was choosen if there were more than one max
+        // BUG: `collect()` seems to call a Comparator for Site. (and there is none so
+        // crash)
+        // int max = pCLS.isPresent() ? pCLS.get().currentStock : 0;
+        // List<Site> largestSites = siteMap.values().stream()
+        // .filter(site -> site.currentStock == max)
+        // .sorted() // is this mandatory ? (see `values()`)
+        // .collect(Collectors.toList());
 
-        for (Site site : largestSites)
-            log.append("\n  - Site " + site.id + ": " + site.currentStock + "/" + Site.STOCK_MAX);
+        // for (Site site : largestSites)
+        // log.append("\n - Site " + site.id + ": " + site.currentStock + "/" +
+        // Site.STOCK_MAX);
         System.out.println(log.toString());
     }
 
