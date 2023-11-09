@@ -130,6 +130,8 @@ public class SupplyTruck extends Thread {
     @Override
     public void run() {
         while (true) {
+            System.out.println("Truck is in " + currentSite + " with " + stock + " bike(s)");
+
             if (this.stock == 0 && !this.starvingSite.isPresent()) {
                 updateStarvation();
                 if (this.starvingSite.isPresent()) {
@@ -144,6 +146,7 @@ public class SupplyTruck extends Thread {
             if (closestLargestSite.isPresent() && closestLargestSite.get() == currentSite) {
                 // NOTE: there is no way that the `closestLargestSite` is the `starvingSite`.
                 this.stock = siteMap.get(currentSite).forceRefillTruck(this.stock);
+                this.closestLargestSite = Optional.empty();
             } else {
                 this.stock = siteMap.get(currentSite).adjustStock(this.stock);
                 if (this.starvingSite.isPresent() && this.starvingSite.get() == currentSite) {
