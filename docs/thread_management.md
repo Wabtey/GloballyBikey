@@ -55,7 +55,20 @@ the truck will anticipate and unload the largest stock of all the site before th
   Starving Site: 3 - 0/10
   ```
 
-- The truck don't move to the next site and reiter an action
+- The truck does not seem to move to the next site and reiter an action.
+  - in `log/v2/truck_stuck.log`
+
+  ```log
+  Site Choosen: 1 - 10/10
+  Current Site: 1
+  Starving Site: 3 - 3/10
+  Largest Sites are:
+    - Site 1: 10/10
+  Truck (0->5) force unloads 5 on  site 1 (new=5)
+  Truck (5->10) force unloads 5 on  site 1 (new=0)
+  ```
+
+- Freeze State
   - Infinity loop
 
     ```log
@@ -72,19 +85,9 @@ the truck will anticipate and unload the largest stock of all the site before th
     ...
     ```
 
-  - in `log/truck_stuck.log`
+  - Some Customer are stuck waiting to return their bike in `log/v2/c9_cant_return_bike_in_site4`
 
-  ```log
-  Site Choosen: 1 - 10/10
-  Current Site: 1
-  Starving Site: 3 - 3/10
-  Largest Sites are:
-    - Site 1: 10/10
-  Truck (0->5) force unloads 5 on  site 1 (new=5)
-  Truck (5->10) force unloads 5 on  site 1 (new=0)
-  ```
-
-  - Comparable cast impossible (idk why but it's not important cause it's for debug prints)
+- Comparable cast impossible (idk why but it's not important cause it's for debug prints)
 
 ## Debug Methods
 
