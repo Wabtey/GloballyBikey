@@ -1,0 +1,84 @@
+Customer 0: site 0 -> site 2.
+Customer 1: site 2 -> site 2.
+Customer 2: site 0 -> site 2.
+Customer 3: site 3 -> site 4.
+Customer 4: site 3 -> site 3.
+Customer 5: site 0 -> site 4.
+Customer 6: site 2 -> site 0.
+Customer 7: site 0 -> site 0.
+Customer 8: site 2 -> site 3.
+Customer 9: site 2 -> site 3.
+Customer 10: site 4 -> site 2.
+Customer 11: site 2 -> site 3.
+Customer 12: site 1 -> site 4.
+Customer 13: site 4 -> site 0.
+Customer 14: site 1 -> site 0.
+Customer 15: site 3 -> site 2.
+Customer 16: site 0 -> site 4.
+Customer 17: site 3 -> site 2.
+Customer 18: site 4 -> site 2.
+Customer 19: site 3 -> site 2.
+The site 3 contains 4 bike(s).
+The site 0 contains 4 bike(s).
+The site 1 contains 4 bike(s).
+The site 0 contains 3 bike(s).
+The site 2 contains 4 bike(s).
+The site 4 contains 4 bike(s).
+The site 3 contains 3 bike(s).
+The site 1 contains 3 bike(s).
+The site 0 contains 2 bike(s).
+The site 2 contains 3 bike(s).
+The site 3 contains 2 bike(s).
+The site 0 contains 1 bike(s).
+The site 3 contains 1 bike(s).
+The site 4 contains 3 bike(s).
+The site 2 contains 2 bike(s).
+The site 0 contains 0 bike(s).
+The site 3 contains 0 bike(s).
+The site 4 contains 2 bike(s).
+The site 3 contains 1 bike(s).
+The site 4 contains 3 bike(s).
+The site 4 contains 4 bike(s).
+The site 2 contains 1 bike(s).
+The site 2 contains 0 bike(s).
+The site 2 contains 1 bike(s).
+The site 4 contains 5 bike(s).
+The site 2 contains 2 bike(s).
+The site 3 contains 2 bike(s).
+The site 2 contains 3 bike(s).
+The site 3 contains 3 bike(s).
+The site 0 contains 3 bike(s).
+The site 2 contains 4 bike(s).
+The site 0 contains 4 bike(s).
+The site 2 contains 5 bike(s).
+The site 0 contains 5 bike(s).
+The site 2 contains 6 bike(s).
+The site 4 contains 6 bike(s).
+The site 2 contains 7 bike(s).
+Customer 9: Finished.
+Customer 7: Finished.
+Customer 10: Finished.
+Customer 3: Finished.
+Customer 14: Finished.
+Customer 5: Finished.
+Customer 16: Finished.
+The site 0 contains 6 bike(s).
+Customer 18: Finished.
+Customer 12: Finished.
+Customer 13: Finished.
+Customer 15: Finished.
+Customer 2: Finished.
+Customer 1: Finished.
+Customer 17: Finished.
+Customer 0: Finished.
+Customer 11: Finished.
+Customer 6: Finished.
+Customer 8: Finished.
+The site 2 contains 8 bike(s).
+Customer 19: Finished.
+The site 3 contains 4 bike(s).
+Customer 4: Finished.
+Tasks completed in 0.028s
+Oct 23, 2023 3:42:11 PM SupplyTruck run
+WARNING: Sleep Interrupted!java.lang.InterruptedException: sleep interrupted
+The truck is calling it a day

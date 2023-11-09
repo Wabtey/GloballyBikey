@@ -8,6 +8,14 @@ Example:
 If Customer 1 waits at Site 0, to return their bike. Site 0 has 9 bike already, so Customer 1 waits. Truck arrives and unloads 1 bike from Site 0 to match the `BORNE_SUP` (8), if truck doesn't notify Customer 1 will be stuck.
 A `notifyAll` is mandatory, because if truck unloads 2 bike and there is two customers waiting to return their bike. A `notify` is not enough
 
+### Optimize Notify call
+
+For the release version 3.
+Adjust the level of granularity by creating a new special Object
+within `Site` which is used only to be called as `wait()`.
+With this setup, we could send notify only to a special site,
+and avoid waking up others for nothing (from other sites).
+
 ## Parameters
 
 Without changing any initial parameters, we can put some bike on the truck already.
@@ -30,14 +38,14 @@ but we will create a dynamic solution.
 
 The truck must redistribute bike if there is some famine / stock with 0 bike.
 
-### Smart Truck
+### Solution: Smart Truck
 
 The supply truck will map out the sites to keep track of all stocks.
 If the current site is under the lower boundary, it will behave the same (try to restock to the `INITIAL_STOCK`).
 If there is a site with 0 bike in stock,
 the truck will anticipate and unload the largest stock of all the site before the first site at 0.
 
-#### Problems
+#### Unsolved Problems
 
 - Site choosen outside our set boundaries (between wurrent and starving site)
 
@@ -46,6 +54,37 @@ the truck will anticipate and unload the largest stock of all the site before th
   Site Choosen: 0 - 9/10
   Starving Site: 3 - 0/10
   ```
+
+- The truck don't move to the next site and reiter an action
+  - Infinity loop
+
+    ```log
+    Site Choosen: 4 - 10/10
+    Current Site: 1
+    Starving Site: 0 - 2/10
+    Largest Sites are:
+      - Site 4: 10/10
+    Site Choosen: 4 - 10/10
+    Current Site: 1
+    Starving Site: 0 - 2/10
+    Largest Sites are:
+      - Site 4: 10/10
+    ...
+    ```
+
+  - in `log/truck_stuck.log`
+
+  ```log
+  Site Choosen: 1 - 10/10
+  Current Site: 1
+  Starving Site: 3 - 3/10
+  Largest Sites are:
+    - Site 1: 10/10
+  Truck (0->5) force unloads 5 on  site 1 (new=5)
+  Truck (5->10) force unloads 5 on  site 1 (new=0)
+  ```
+
+  - Comparable cast impossible (idk why but it's not important cause it's for debug prints)
 
 ## Debug Methods
 

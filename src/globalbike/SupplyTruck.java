@@ -123,7 +123,7 @@ public class SupplyTruck extends Thread {
                 .collect(Collectors.toList());
 
         for (Site site : largestSites)
-            log.append("\n- Site " + site.id + ": " + site.currentStock + "/" + Site.STOCK_MAX);
+            log.append("\n  - Site " + site.id + ": " + site.currentStock + "/" + Site.STOCK_MAX);
         System.out.println(log.toString());
     }
 
