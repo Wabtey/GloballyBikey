@@ -47,7 +47,7 @@ public class SupplyTruck extends Thread {
     }
 
     /**
-     * Set the starvingSite with the site having stock issue
+     * Set the `starvingSite` with the site having stock issue
      * 
      * OPTIMIZE: Select the closest if two sites have the same stock
      */
@@ -63,6 +63,11 @@ public class SupplyTruck extends Thread {
     }
 
     /**
+     * Set the `closestLargestSite` with the nearest site (between current and the
+     * starving site)
+     * with the more bike in stock. This site will be used to refill the empty
+     * truck.
+     * 
      * ## Note
      * 
      * - If `this.starvingSite` is the `(currentSite % NB_SITE) + 1`
@@ -112,21 +117,8 @@ public class SupplyTruck extends Thread {
         log.append("\nCurrent Site: " + this.currentSite + "\n" +
                 "Starving Site: " + this.starvingSite.get() + " - "
                 + siteMap.get(this.starvingSite.get()).currentStock
-                + "/" + Site.STOCK_MAX + "\n" +
-                "Largest Sites are:");
-
-        // DEBUG: to visuliaze which site was choosen if there were more than one max
-        // BUG: `collect()` seems to call a Comparator for Site. (and there is none so
-        // crash)
-        // int max = pCLS.isPresent() ? pCLS.get().currentStock : 0;
-        // List<Site> largestSites = siteMap.values().stream()
-        // .filter(site -> site.currentStock == max)
-        // .sorted() // is this mandatory ? (see `values()`)
-        // .collect(Collectors.toList());
-
-        // for (Site site : largestSites)
-        // log.append("\n - Site " + site.id + ": " + site.currentStock + "/" +
-        // Site.STOCK_MAX);
+                + "/" + Site.STOCK_MAX + "\n"
+        );
         System.out.println(log.toString());
     }
 
