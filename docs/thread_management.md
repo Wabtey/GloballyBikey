@@ -68,6 +68,7 @@ the truck will anticipate and unload the largest stock of all the site before th
   Truck (5->10) force unloads 5 on  site 1 (new=0)
   ```
 
+- Some customers stay asleep even if there is activity. (`log/v2/c26_is_crying.log`)
 - ~~Comparable cast impossible (idk why but it's not important cause it's for debug prints)~~
 
 ## Debug Methods
