@@ -1,3 +1,5 @@
+package globalbike;
+
 import java.util.Random;
 import java.util.logging.Logger;
 
@@ -5,8 +7,11 @@ class SystemeEmprunt {
 
     /* Constantes de la simulation */
 
-    public static final int NB_SITES = 100;
-    static final int NB_CLIENTS = 500;
+    /**
+     * Must be > 0
+     */
+    public static final int NB_SITES = 5;
+    static final int NB_CLIENTS = 50;
 
     private Site[] sites = new Site[NB_SITES];
     private Customer[] customers = new Customer[NB_CLIENTS];
@@ -17,7 +22,7 @@ class SystemeEmprunt {
 
         /* Instanciation des sites */
         for (int i = 0; i < NB_SITES; i++)
-            sites[i] = new Site(i, NB_SITES);
+            sites[i] = new Site(i);
 
         /* Instanciation and Starting des clients */
         Random r = new Random();
@@ -47,22 +52,20 @@ class SystemeEmprunt {
         }
 
         // There is no more customers on the road.
-
-        // truck.interrupt();
         // The truck being a Daemon, will stop itself being the only one left.
         System.out.println("The truck is calling it a day");
     }
 
     public static void main(String[] args) {
-        while (true) {
-            long start = System.currentTimeMillis();
+        // while (true) {
+        long start = System.currentTimeMillis();
 
-            new SystemeEmprunt();
+        new SystemeEmprunt();
 
-            long finish = System.currentTimeMillis();
-            float timeElapsed = finish - start;
-            System.out.println("Tasks completed in " + timeElapsed / 1000 + "s");
-        }
+        long finish = System.currentTimeMillis();
+        float timeElapsed = finish - start;
+        System.out.println("Tasks completed in " + timeElapsed / 1000 + "s");
+        // }
     }
 
 } // SystemeEmprunt
