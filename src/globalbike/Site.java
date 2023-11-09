@@ -87,15 +87,40 @@ public class Site {
                 notifyAll();
                 newTruckStock = truckStock - amountRefilled;
                 System.out.println("Truck (" + truckStock + "->" + newTruckStock + ") loads " + amountRefilled
-                        + " on site " + id + "(" + currentStock + ")");
+                        + " on site " + id + " (new=" + currentStock + ")");
             }
         } else if (currentStock > BORNE_SUP) {
             int amountUnloaded = currentStock - STOCK_INIT;
             newTruckStock = truckStock + amountUnloaded;
             System.out.println("Truck (" + truckStock + "->" + newTruckStock + ") unloads " + amountUnloaded
-                    + " on  site " + id + "(" + currentStock + ")");
+                    + " on  site " + id + " (new=" + currentStock + ")");
 
             currentStock = STOCK_INIT;
+            // we must `notifyAll` to wake returning bike blocked at a site.
+            notifyAll();
+        }
+
+        return newTruckStock;
+    }
+
+    /**
+     * This function overrides `adjustStock()` !
+     * Used by Truck, to retrieve at most `SupplyTruck.INITIAL_STOCK` whatever the
+     * site's state.
+     * 
+     * @return the new truck's stock.
+     */
+    public synchronized int forceRefillTruck(int truckStock) {
+        int newTruckStock = truckStock;
+
+        if (currentStock > 0) {
+            int amountUnloaded = currentStock >= SupplyTruck.INITIAL_STOCK ? SupplyTruck.INITIAL_STOCK
+                    : currentStock;
+            this.currentStock -= amountUnloaded;
+            newTruckStock += amountUnloaded;
+            System.out.println("Truck (" + truckStock + "->" + newTruckStock + ") force unloads " + amountUnloaded
+                    + " on  site " + id + " (new=" + currentStock + ")");
+
             // we must `notifyAll` to wake returning bike blocked at a site.
             notifyAll();
         }

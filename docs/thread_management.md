@@ -37,6 +37,16 @@ If the current site is under the lower boundary, it will behave the same (try to
 If there is a site with 0 bike in stock,
 the truck will anticipate and unload the largest stock of all the site before the first site at 0.
 
+#### Problems
+
+- Site choosen outside our set boundaries (between wurrent and starving site)
+
+  ```log
+  Current Site: 2
+  Site Choosen: 0 - 9/10
+  Starving Site: 3 - 0/10
+  ```
+
 ## Debug Methods
 
 - Reading :)

@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 public class SupplyTruck extends Thread {
 
-    static final int INITIAL_STOCK = 2;
+    static final int INITIAL_STOCK = 5;
 
     int stock;
 
@@ -36,8 +36,8 @@ public class SupplyTruck extends Thread {
      */
     HashMap<Integer, Site> siteMap = new HashMap<>();
 
-    Optional<Integer> targetSite = Optional.empty();
-    // Optional<Integer> largestSite = Optional.empty();
+    Optional<Integer> starvingSite = Optional.empty();
+    Optional<Integer> closestLargestSite = Optional.empty();
 
     public SupplyTruck(Site[] sites) {
         for (Site site : sites)
@@ -48,101 +48,119 @@ public class SupplyTruck extends Thread {
     }
 
     /**
-     * Set the targetSite with the site having stock issue
+     * Set the starvingSite with the site having stock issue
      * 
      * OPTIMIZE: Select the closest if two sites have the same stock
      */
     private void updateStarvation() {
         // reset
-        targetSite = Optional.empty();
+        this.starvingSite = Optional.empty();
         for (Site site : siteMap.values()) {
             if (site.currentStock <= Site.BORNE_INF &&
-                    (!targetSite.isPresent() || site.currentStock <= siteMap.get(targetSite.get()).currentStock))
-                targetSite = Optional.of(site.id);
+                    (!this.starvingSite.isPresent()
+                            || site.currentStock <= siteMap.get(this.starvingSite.get()).currentStock))
+                this.starvingSite = Optional.of(site.id);
         }
     }
 
-    private Optional<Integer> closestLargestSite(int targetSite) {
-        // First case: targetSite < currentSite
-        // ---largest-----T---------C-------
-        // Second case: currentSite < targetSite
-        // -------C-----largest-----T-------
+    /**
+     * ## Note
+     * 
+     * - If `this.starvingSite` is the `(currentSite % NB_SITE) + 1`
+     * `this.closestLargestSite` is set to `None` (`Optional.empty()`).
+     * In other words, `this.starvingSite` won't be the `this.closestLargestSite`.
+     * 
+     * - `this.closestLargestSite` can still be a site with low or 0 bike left,
+     * in this case: `-----C--nextButLow--S-----`
+     * 
+     * @param starvingSite
+     */
+    private void updateClosestLargestSite(int starvingSite) {
+        // First case: starvingSite < currentSite
+        // ---largest-----S---------C-------
+        // Second case: currentSite < starvingSite
+        // -------C-----largest-----S-------
 
         // DOC: Draw in the markdown this loop range
-        // 0 .. targetSite = 25 .. currentSite = 100 .. 500
-        // 0 .. currentSite = 50 .. 70 .. targetSite = 150 .. 500
+        // 0 .. starvingSite = 25 .. currentSite = 100 .. 500
+        // 0 .. currentSite = 50 .. 70 .. starvingSite = 150 .. 500
 
         // potentialClosestLargestSite
         Optional<Site> pCLS = siteMap
                 .values()
                 .stream()
-                .filter(site -> (targetSite < currentSite && ((0 <= site.id && site.id < targetSite)
+                .filter(site -> (starvingSite < currentSite && ((0 <= site.id && site.id < starvingSite)
                         || (currentSite <= site.id && site.id < SystemeEmprunt.NB_SITES)))
-                        || (currentSite < targetSite && (site.id <= currentSite && site.id < targetSite)))
+                        || (currentSite < starvingSite && (site.id <= currentSite && site.id < starvingSite)))
                 // no big deal if we don't have the closest to the current (need one more
                 // calculus otherwise)
-                // .max((site1, site2) -> site1.currentStock >= site2.currentStock ?
-                // site1.currentStock
-                // : site2.currentStock)
                 .reduce((site1, site2) -> site1.currentStock >= site2.currentStock ? site1
                         : site2);
-        // Integer.compare(site1.currentStock, site2.currentStock)
 
-        // (site1, site2) -> site1.currentStock >= site2.currentStock ?
-        // site1.currentStock: site2.currentStock
-        int max = pCLS.isPresent() ? pCLS.get().currentStock : 0;
+        this.closestLargestSite = pCLS.isPresent() ? Optional.of(pCLS.get().id)
+                : Optional.empty();
 
+        // --------------------------------------------------------------------
+        StringBuilder log = new StringBuilder();
         if (pCLS.isPresent()) {
-            System.out.println("Site Choosen: " + pCLS.get().id + " - "
+            log.append("Site Choosen: " + pCLS.get().id + " - "
                     + pCLS.get().currentStock + "/" + Site.STOCK_MAX);
         } else {
-            System.out.println("There is no closest largest site");
+            log.append("There is no closest largest site");
         }
 
+        // DEBUG: Print all largest Sites
+        log.append("\nCurrent Site: " + this.currentSite + "\n" +
+                "Starving Site: " + this.starvingSite.get() + " - "
+                + siteMap.get(this.starvingSite.get()).currentStock
+                + "/" + Site.STOCK_MAX + "\n" +
+                "Largest Sites are:");
+
+        int max = pCLS.isPresent() ? pCLS.get().currentStock : 0;
         List<Site> largestSites = siteMap.values().stream()
                 .filter(site -> site.currentStock == max)
                 .sorted() // is this mandatory ? (see `values()`)
                 .collect(Collectors.toList());
 
-        System.out.println("Largest Sites are:");
         for (Site site : largestSites)
-            System.out.println("Site " + site.id + ": " + site.currentStock + "/" + Site.STOCK_MAX);
-
-        return pCLS.isPresent() ? Optional.of(pCLS.get().id)
-                : Optional.empty();
+            log.append("\n- Site " + site.id + ": " + site.currentStock + "/" + Site.STOCK_MAX);
+        System.out.println(log.toString());
     }
 
     @Override
     public void run() {
         while (true) {
-            // REMOVE: To simulate the truck maping out the sites, we're using this technic
-            // (role playing).
-            // Because technically we have a reference to all sites and therefore their
-            // stocks.
-
-            if (stock == 0 && !targetSite.isPresent()) {
+            if (this.stock == 0 && !this.starvingSite.isPresent()) {
                 updateStarvation();
-                if (targetSite.isPresent()) {
-                    closestLargestSite(targetSite.get());
-                    // // DEBUG: to visualize the largest Site
-                    // break;
-                    // trigger var truckNeedRefill = true;
-                    // (which will be pass in the `adjust()` function)
+                if (this.starvingSite.isPresent()) {
+                    updateClosestLargestSite(this.starvingSite.get());
                 }
             }
 
-            // TODO: if we are in the `nearest largest site`, unload even if in boundaries.
-            // and ONLY IF our truck need to refill (stock == 0)
+            /* --------------------------- Manage Site's Stock -------------------------- */
 
-            // sites[currentSite].try_refill();
-            stock = siteMap.get(currentSite).adjustStock(stock);
+            // If we are in the `nearest largest site`, unload even if in boundaries.
+            // and even if our truck has recharged by the time it arrives.
+            if (closestLargestSite.isPresent() && closestLargestSite.get() == currentSite) {
+                // NOTE: there is no way that the `closestLargestSite` is the `starvingSite`.
+                this.stock = siteMap.get(currentSite).forceRefillTruck(this.stock);
+            } else {
+                this.stock = siteMap.get(currentSite).adjustStock(this.stock);
+                if (this.starvingSite.isPresent() && this.starvingSite.get() == currentSite) {
+                    this.starvingSite = Optional.empty();
+                }
+            }
+
+            /* ------------------------ Prepare next destination ------------------------ */
 
             int nextSite = currentSite < Collections.max(siteMap.keySet()) - 1 ? currentSite + 1 : 0;
+
+            /* --------------------------------- Travel --------------------------------- */
 
             try {
                 Thread.sleep(siteMap.get(currentSite).distanceBetween(siteMap.get(nextSite)));
             } catch (InterruptedException e) {
-                Logger.getGlobal().warning("Sleep Interrupted!");
+                Logger.getGlobal().warning("Truck Sleep Interrupted!");
                 /* Clean up whatever needs to be handled before interrupting */
                 Thread.currentThread().interrupt();
             }

@@ -11,7 +11,7 @@ class SystemeEmprunt {
      * Must be > 0
      */
     public static final int NB_SITES = 5;
-    static final int NB_CLIENTS = 20;
+    static final int NB_CLIENTS = 50;
 
     private Site[] sites = new Site[NB_SITES];
     private Customer[] customers = new Customer[NB_CLIENTS];
@@ -57,15 +57,13 @@ class SystemeEmprunt {
     }
 
     public static void main(String[] args) {
-        while (true) {
-            long start = System.currentTimeMillis();
+        long start = System.currentTimeMillis();
 
-            new SystemeEmprunt();
+        new SystemeEmprunt();
 
-            long finish = System.currentTimeMillis();
-            float timeElapsed = finish - start;
-            System.out.println("Tasks completed in " + timeElapsed / 1000 + "s");
-        }
+        long finish = System.currentTimeMillis();
+        float timeElapsed = finish - start;
+        System.out.println("Tasks completed in " + timeElapsed / 1000 + "s");
     }
 
 } // SystemeEmprunt
