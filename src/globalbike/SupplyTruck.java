@@ -156,7 +156,7 @@ public class SupplyTruck extends Thread {
 
             /* ------------------------ Prepare next destination ------------------------ */
 
-            int nextSite = currentSite < Collections.max(siteMap.keySet()) - 1 ? currentSite + 1 : 0;
+            int nextSite = currentSite < SystemeEmprunt.NB_SITES - 1 ? currentSite + 1 : 0;
 
             /* --------------------------------- Travel --------------------------------- */
 
