@@ -46,7 +46,9 @@ public class Site {
             }
         }
         currentStock--;
-        // notifyAll();
+        // necessary to avoid not waking up returning customers;
+        // Seen in `log/v2/c26_is_crying.log`.
+        notifyAll();
         afficher(customerID, "borrowed");
     }
 

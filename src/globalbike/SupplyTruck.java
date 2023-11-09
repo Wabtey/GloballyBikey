@@ -134,7 +134,9 @@ public class SupplyTruck extends Thread {
     @Override
     public void run() {
         while (true) {
-            System.out.println("Truck is in " + currentSite + " with " + stock + " bike(s)");
+            // System.out.println(
+            // "Truck is in " + currentSite + " with " + stock + " bike(s)"
+            // );
 
             if (this.stock == 0 && !this.starvingSite.isPresent()) {
                 updateStarvation();
